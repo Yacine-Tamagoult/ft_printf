@@ -3,6 +3,8 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <stdarg.h>
+# include <stdlib.h>
+
 
 void ft_putstr(const char *str);
 int ft_printf(const char *str, ...);
