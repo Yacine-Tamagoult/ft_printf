@@ -10,8 +10,8 @@ void ft_douane(char c, va_list many)
 	{
 		ft_Chopper(many);
 	}
-	if(c == 'd' || c == 'i')
+	if(c == 'd')
 	{
-		ft_
+		ft_Dodo(many);
 	}
 }

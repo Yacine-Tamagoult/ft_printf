@@ -13,5 +13,7 @@ int ft_checkflag(const char c);
 void ft_douane(char c, va_list many);
 void ft_Sasuke(va_list many);
 void ft_Chopper(va_list many);
+void	ft_Doflamingo(int n);
+void ft_Dodo(va_list many);
 
 #endif
