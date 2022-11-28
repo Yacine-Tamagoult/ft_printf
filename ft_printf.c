@@ -6,49 +6,51 @@
 /*   By: yatamago <yatamago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 08:07:19 by soleil            #+#    #+#             */
-/*   Updated: 2022/11/25 18:20:08 by yatamago         ###   ########.fr       */
+/*   Updated: 2022/11/28 19:18:56 by yatamago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <limits.h>
 
 int ft_printf(const char *str, ...)
 {
 	int i;
-	int j;
+	int r;
 	va_list many;
 
+	r = 0;
 	i = 0;
-	j = 1;
 	va_start(many, str);
 	while(str[i])
 	{
-	if(str[i] != '%')
-	{
-		 ft_putchar(str[i]);
+		if(str[i] != '%')
+		{
+		 	ft_putchar(str[i]);
+		 	r++;
+		}
+		else if(str[i] == '%')
+		{
+			 r = r + ft_douane(str[i + 1], many);
+			 i++;
+		}
+		i++;
 	}
-	else if(str[i] == '%')
-	{
-		 ft_douane(str[i + 1], many);
-		 i++;
-	}
-	
-	i++;
-	}
+	//printf("Return: %i", r);
 	va_end(many);
-	return 0;
+	return r;
 }
 
+/*
 int main ()
 {   
-	char str[] = "1";
-	char str2[] = "2";
-	char str3[] = "3";
-	char c = 122;
-	int num = 999999;
-
-	ft_printf("sal%sut%s%ssalut%c%d", str, str2, str3, c, num);
-	printf(" //// ");
-	printf("sal%sut%s%ssalut%c%d ", str, str2, str3, c, num);
+	char str[] = "";
+	unsigned int i = 563;
+	ft_printf("%u", i);
+	printf("\n");
+	//printf("%c", '0');
+	printf("%d", printf("%u", i));
 	return 0;
 }
+
+*/

@@ -1,5 +1,14 @@
-SRCS =	ft_print.c \
+SRCS =	ft_printf.c \
 		ft_putstr.c \
+		ft_Chopper.c \
+		ft_Doflamingo.c \
+		ft_douane.c \
+		ft_putchar.c \
+		ft_putstr.c\
+		ft_Sasuke.c \
+		ft_Uranus.c \
+		ft_Peter.c \
+
 		
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra

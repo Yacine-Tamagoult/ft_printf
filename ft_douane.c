@@ -1,17 +1,38 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_douane.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yatamago <yatamago@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/26 18:48:22 by yatamago          #+#    #+#             */
+/*   Updated: 2022/11/28 19:29:25 by yatamago         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
-void ft_douane(char c, va_list many)
+int ft_douane(char c, va_list many)
 {
 	if(c == 's')
 	{
-	   ft_Sasuke(many);
+	   return(ft_Sasuke(many));
 	}
 	if(c == 'c')
 	{
-		ft_Chopper(many);
+		return(ft_Chopper(many));
 	}
-	if(c == 'd')
+	if(c == 'd' || c == 'i')
 	{
-		ft_Dodo(many);
+		return(ft_Dodo(many));
 	}
+	if(c == 'u')
+	{
+		return(ft_Ura(many));
+	}
+	if(c == 'x')
+	{
+		return(ft_Pete(many));
+	}
+	return(0);
 }

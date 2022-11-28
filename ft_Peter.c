@@ -1,35 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_Sasuke.c                                        :+:      :+:    :+:   */
+/*   ft_Peter.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yatamago <yatamago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/25 07:51:10 by soleil            #+#    #+#             */
-/*   Updated: 2022/11/28 18:52:17 by yatamago         ###   ########.fr       */
+/*   Created: 2022/11/28 19:21:46 by yatamago          #+#    #+#             */
+/*   Updated: 2022/11/28 19:42:32 by yatamago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "ft_printf.h"
+#include <limits.h>
 
-int ft_Sasuke(va_list many)
+int	ft_Peter(unsigned int n)
 {
-	int i;
-	char *str;
-
-	str = va_arg(many, char *);
-	i = 0;
-
-	if(str == NULL)
+    int r = 0;
+    if(n >= 4294967295)
+    {
+        return 0;
+    }
+	if (n > 9)
 	{
-		ft_putstr("(null)");
-		return 6;
+		r = r + ft_Peter(n / 16);
+		r = r +	ft_Peter(n % 16);
 	}
-	while(str[i])
+	if (n <= 9)
 	{
-		write(1, &str[i], 1);
-		i++;
+		ft_putchar(n + 48);
+		r++;
 	}
-	return(i);
+return(r);
+}
+
+int ft_Pete(va_list many)
+{
+    unsigned int n;
+	
+    n = va_arg(many, unsigned int);
+    return(ft_Peter(n));
 }
