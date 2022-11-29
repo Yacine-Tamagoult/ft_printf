@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_douane.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yatamago <yatamago@student.42.fr>          +#+  +:+       +#+        */
+/*   By: soleil <soleil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 18:48:22 by yatamago          #+#    #+#             */
-/*   Updated: 2022/11/28 19:29:25 by yatamago         ###   ########.fr       */
+/*   Updated: 2022/11/29 11:46:03 by soleil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int ft_douane(char c, va_list many)
 	{
 		return(ft_Ura(many));
 	}
-	if(c == 'x')
+	if(c == 'x' || c == 'X')
 	{
 		return(ft_Pete(many));
 	}

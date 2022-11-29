@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yatamago <yatamago@student.42.fr>          +#+  +:+       +#+        */
+/*   By: soleil <soleil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 08:07:19 by soleil            #+#    #+#             */
-/*   Updated: 2022/11/28 19:18:56 by yatamago         ###   ########.fr       */
+/*   Updated: 2022/11/29 11:42:33 by soleil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,10 @@ int ft_printf(const char *str, ...)
 int main ()
 {   
 	char str[] = "";
-	unsigned int i = 563;
-	ft_printf("%u", i);
+	ft_printf(" %x ", -1);
 	printf("\n");
 	//printf("%c", '0');
-	printf("%d", printf("%u", i));
+	printf("%d", printf(" %x ", -1));
 	return 0;
 }
-
 */
