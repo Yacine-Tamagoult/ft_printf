@@ -1,25 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_flag_X.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soleil <soleil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/24 08:21:35 by soleil            #+#    #+#             */
-/*   Updated: 2022/11/30 02:16:35 by soleil           ###   ########.fr       */
+/*   Created: 2022/11/30 02:11:48 by soleil            #+#    #+#             */
+/*   Updated: 2022/11/30 02:18:10 by soleil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putstr(const char *str)
+int	ft_flag_upperx(unsigned int n)
 {
-	int	i;
+	char	*base;
+	int		r;
 
-	i = 0;
-	while (str[i])
+	base = "0123456789ABCDEF";
+	r = 0;
+	if (n >= 16)
 	{
-		write(1, &str[i], 1);
-		i++;
+		r = r + ft_flag_upperx(n / 16);
+		r = r + ft_flag_upperx(n % 16);
 	}
+	if (n <= 15)
+	{
+		ft_putchar(base[n]);
+		r++;
+	}
+	return (r);
+}
+
+int	ft_upx(va_list list)
+{
+	unsigned int	n;
+
+	n = va_arg(list, unsigned int);
+	return (ft_flag_upperx(n));
 }

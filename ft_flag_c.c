@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_flag_c.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soleil <soleil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/24 08:21:35 by soleil            #+#    #+#             */
-/*   Updated: 2022/11/30 02:16:35 by soleil           ###   ########.fr       */
+/*   Created: 2022/11/30 01:53:49 by soleil            #+#    #+#             */
+/*   Updated: 2022/11/30 01:54:26 by soleil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putstr(const char *str)
+int	ft_flag_c(va_list list)
 {
-	int	i;
+	char	c;
 
-	i = 0;
-	while (str[i])
-	{
-		write(1, &str[i], 1);
-		i++;
-	}
+	c = (char)va_arg(list, int);
+	ft_putchar(c);
+	return (1);
 }

@@ -6,13 +6,13 @@
 /*   By: soleil <soleil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 08:53:15 by soleil            #+#    #+#             */
-/*   Updated: 2022/11/24 08:58:28 by soleil           ###   ########.fr       */
+/*   Updated: 2022/11/30 02:15:59 by soleil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void ft_putchar(char c)
+void	ft_putchar(char c)
 {
-    write(1, &c, 1);
+	write(1, &c, 1);
 }

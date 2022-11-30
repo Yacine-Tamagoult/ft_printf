@@ -1,41 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_flag_p.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soleil <soleil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/24 08:07:19 by soleil            #+#    #+#             */
-/*   Updated: 2022/11/30 02:15:36 by soleil           ###   ########.fr       */
+/*   Created: 2022/11/29 20:37:29 by soleil            #+#    #+#             */
+/*   Updated: 2022/11/30 02:00:59 by soleil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <limits.h>
 
-int	ft_printf(const char *str, ...)
+int	ft_flag_p(unsigned long int n)
 {
-	int			i;
+	char		*base;
 	int			r;
-	va_list		list;
 
 	r = 0;
-	i = 0;
-	va_start(list, str);
-	while (str[i])
+	base = "0123456789abcdef";
+	if (n >= 16)
 	{
-		if (str[i] != '%')
-		{
-			ft_putchar(str[i]);
-			r++;
-		}
-		else if (str[i] == '%')
-		{
-			r = r + ft_douane(str[i + 1], list);
-			i++;
-		}
-		i++;
+		r = r + ft_flag_p(n / 16);
+		r = r + ft_flag_p(n % 16);
 	}
-	va_end (list);
+	if (n <= 15)
+	{
+		ft_putchar(base[n]);
+		r++;
+	}
 	return (r);
+}
+
+int	ft_p(va_list list)
+{
+	unsigned long int	n;
+
+	n = va_arg(list, unsigned long int);
+	if (n != 0)
+	{
+		write(1, "0x", 2);
+		return (ft_flag_p(n) + 2);
+	}
+	else if (n == 0)
+	{
+		write(1, "(nil)", 5);
+		return (5);
+	}
+	return (0);
 }
